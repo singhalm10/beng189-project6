@@ -15,11 +15,12 @@ vstart = -55; %(mV)
 
 t1p=0;       %starting time (ms)
 t2p=tend;       %stopping time (ms)
-ip=5;        %current applied (muA)
+ip=20;        %current applied (muA)
 
 
 if neuron == 1 % Normal Spiking
 
+    Cm = 1; %(uF/cm^2)
     gleak = 0.1; %(mS/cm^2)
     gbarL = 0; %(mS/cm^2)
     gbarNa = 50; %(mS/cm^2)
@@ -36,10 +37,10 @@ if neuron == 1 % Normal Spiking
 
 elseif neuron == 2 % Fast Spiking
 
-    gleak = 0.00015; %(S/cm^2)
+    gleak = 0.15; %(S/cm^2)
     gbarL = 0; %(S/cm^2)
-    gbarNa = 0.05; %(S/cm^2)
-    gbarKd = 0.01; %(S/cm^2)
+    gbarNa = 50; %(S/cm^2)
+    gbarKd = 10; %(S/cm^2)
     gbarM = 0; %(S/cm^2)
 
     EL = -70; %(mV)
@@ -52,11 +53,12 @@ elseif neuron == 2 % Fast Spiking
 
 elseif neuron == 3 % Burst Spiking
 
-    gleak = 0.00001; %(S/cm^2)
-    gbarL = 0.0001; %(S/cm^2)
-    gbarNa = 0.05; %(S/cm^2)
-    gbarKd = 0.005; %(S/cm^2)
-    gbarM = 0.00003; %(S/cm^2)
+    Cm = 1;
+    gleak = 0.01; %(mS/cm^2)
+    gbarL = 0.1; %(mS/cm^2)
+    gbarNa = 50; %(mS/cm^2)
+    gbarKd = 5; %(mS/cm^2)
+    gbarM = 0.03; %(mS/cm^2)
 
     EL = -70; %(mV)
     ENa = 50; %(mV)
